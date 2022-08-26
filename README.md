@@ -24,7 +24,9 @@ There might be few problems working with celery on windows. However, we will try
 A message broker is an intermediary computer program module that translates a message from the formal messaging protocol of the sender to the formal messaging protocol of the receiver.
 
 You can checkout the below diagram (made by me) to know how task queue works!
+<br>
 ![Untitled Diagram](https://user-images.githubusercontent.com/57327185/186875182-d055f417-9d29-463d-abdd-2272eb2f9681.png)
+<br>
 
 1. <b>Producers</b> or celery clients are basically the APIs that will send messages to the message broker.
 2. <b>Message broker</b> is responsible for the connection between producer and consumers.
@@ -62,7 +64,7 @@ When a message is in the queue and it goes to the consumer, the message stays in
 
 
 ### About messaging models
-<b>1. Point-to-point:</b><br> 
+<b>1. Point-to-point:</b>
 Point to Point means message(s) is sent from one application(producer or sender) to another application(consumer/receiver) via a queue. There can be more than one consumer listening on a queue but only one of them will be get the message. Hence it is Point to Point or One to One.
 <br>
 <b>2. Pub/Sub:</b>
