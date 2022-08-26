@@ -30,6 +30,7 @@ You can checkout the below diagram (made by me) to know how task queue works!
 2. <b>Message broker</b> is responsible for the connection between producer and consumers.
 3. <b>Consumers</b> or celery workers are responsible for executing the tasks.
 4. The queues are stored in message broker (its server)
+5. Exchanges are connected to the task queues with bindings which can be referenced by the binding key.
 
 ## Workflow:
 1. Producers (or celery client) i.e. our API will pass a message (Let us suppose a simple mail to be sent) to a message broker (Rabbit MQ in our case). 
@@ -38,6 +39,26 @@ You can checkout the below diagram (made by me) to know how task queue works!
 4. This exchange & task queue is together called as message broker.
 5. The task queue then gives out the tasks to the workers or consumers (celery workers in our case)
 6. Celery workers can tackle computations as a background task and allow your users to continue browsing.
-7. There are various techniques through which this tasks can be provided by task queues to the workers. (like fanout, direct, header, defualt, topic)
+7. There are various techniques through which this tasks can be provided by task queues to the workers. (like fanout, direct, header, defualt, topic. Will learn more about this later.)
 8. The task queue (stored in Rabbit MQ server) follows acknowledgement rule, i.e. until and unless the task is completed by the worker and an acknowledgement is not sent, the queue will store the task that are pending. 
+
+*By now we have learn about task queue, message broker, producer, consumer and learnt a bit about what rabbit MQ and celery does.*
+<b>Now, we will dive deep into how tasks are distributed internally and other related things. In the end, we will be implementing the setup. So please be patient with it.</b>
+
+### About AMQP
+1. AMQP (Advanced Message Queuing Protocol) is a messaging protocol that enables conforming client applications to communicate with conforming messaging middleware brokers. 
+2. AMQP is the core protocol for RabbitMQ.
+
+### About different type of exchanges
+1. Fanout Exchange: Exchange will duplicate the message and send it to every single queue it knows about.
+2. Direct Exchange: Message will have a routing key, which will be compare to the binding key. If matched, message will move through.
+3. Topic Exchange: Partial match between routing and binding key. (Topic should be same, eg. ship.shoes is the routing key & ship.any is the binding key)
+4. Header Exchange: Routing key is ignored completely, message is moved according to header.
+5. Default/Nameless Exchange: Only the part of RabbitMQ and not of AMQP. Here, routing key name is same as the queue name.
+
+### About message acknowledgement in RabbitMQ
+When a message is in the queue and it goes to the consumer, the message stays in the queue until the consumer lets the broker know that it has received the message. That prevents system from losing any messages.
+
+
+
 
