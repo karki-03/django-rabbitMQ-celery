@@ -43,6 +43,7 @@ You can checkout the below diagram (made by me) to know how task queue works!
 8. The task queue (stored in Rabbit MQ server) follows acknowledgement rule, i.e. until and unless the task is completed by the worker and an acknowledgement is not sent, the queue will store the task that are pending. 
 
 *By now we have learn about task queue, message broker, producer, consumer and learnt a bit about what rabbit MQ and celery does.*
+<br>
 <b>Now, we will dive deep into how tasks are distributed internally and other related things. In the end, we will be implementing the setup. So please be patient with it.</b>
 
 ### About AMQP
@@ -63,7 +64,8 @@ When a message is in the queue and it goes to the consumer, the message stays in
 ### About messaging models
 <b>1. Point-to-point:</b><br> 
 Point to Point means message(s) is sent from one application(producer or sender) to another application(consumer/receiver) via a queue. There can be more than one consumer listening on a queue but only one of them will be get the message. Hence it is Point to Point or One to One.
-<b>2. Pub/Sub:</b><br>
+<br>
+<b>2. Pub/Sub:</b>
 Pub/Sub or Publisher/Subscriber is another messaging model where a message is sent to multiple consumers(or subscribers) through a topic. The topic is the link between publisher and subscriber. (Topic here means the binding).
 <br>
 *Note: We are using pub/sub messaging model in this tutorial, we also call it as producer/consumer.*
