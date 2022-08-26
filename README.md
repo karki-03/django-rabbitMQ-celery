@@ -46,18 +46,27 @@ You can checkout the below diagram (made by me) to know how task queue works!
 <b>Now, we will dive deep into how tasks are distributed internally and other related things. In the end, we will be implementing the setup. So please be patient with it.</b>
 
 ### About AMQP
-1. AMQP (Advanced Message Queuing Protocol) is a messaging protocol that enables conforming client applications to communicate with conforming messaging middleware brokers. 
+1. AMQP <b>(Advanced Message Queuing Protocol)</b> is a messaging protocol that enables conforming client applications to communicate with conforming messaging middleware brokers. 
 2. AMQP is the core protocol for RabbitMQ.
 
 ### About different type of exchanges
-1. Fanout Exchange: Exchange will duplicate the message and send it to every single queue it knows about.
-2. Direct Exchange: Message will have a routing key, which will be compare to the binding key. If matched, message will move through.
-3. Topic Exchange: Partial match between routing and binding key. (Topic should be same, eg. ship.shoes is the routing key & ship.any is the binding key)
-4. Header Exchange: Routing key is ignored completely, message is moved according to header.
-5. Default/Nameless Exchange: Only the part of RabbitMQ and not of AMQP. Here, routing key name is same as the queue name.
+1. <b>Fanout Exchange:</b> Exchange will duplicate the message and send it to every single queue it knows about.
+2. <b>Direct Exchange:</b> Message will have a routing key, which will be compare to the binding key. If matched, message will move through.
+3. <b>Topic Exchange:</b> Partial match between routing and binding key. (Topic should be same, eg. ship.shoes is the routing key & ship.any is the binding key)
+4. <b>Header Exchange:</b> Routing key is ignored completely, message is moved according to header.
+5. <b>Default/Nameless Exchange:</b> Only the part of RabbitMQ and not of AMQP. Here, routing key name is same as the queue name.
 
 ### About message acknowledgement in RabbitMQ
 When a message is in the queue and it goes to the consumer, the message stays in the queue until the consumer lets the broker know that it has received the message. That prevents system from losing any messages.
+
+
+### About messaging models
+<b>1. Point-to-point:</b> 
+Point to Point means message(s) is sent from one application(producer or sender) to another application(consumer/receiver) via a queue. There can be more than one consumer listening on a queue but only one of them will be get the message. Hence it is Point to Point or One to One.
+<b>2. Pub/Sub:</b>
+Pub/Sub or Publisher/Subscriber is another messaging model where a message is sent to multiple consumers(or subscribers) through a topic. The topic is the link between publisher and subscriber. (Topic here means the binding).
+
+*Note: We are using pub/sub messaging model in this tutorial, we also call it as producer/consumer.*
 
 
 
