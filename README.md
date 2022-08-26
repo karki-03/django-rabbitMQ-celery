@@ -16,7 +16,9 @@ Celery is an open-source Python library which is used to run the tasks asynchron
 There might be few problems working with celery on windows. However, we will try to make it work on windows as well. So don't lose your mind, while setting up celery!
 
 # Understanding the architecture 
-1. Celery is a distributed task queue that can collect, record, schedule, and perform tasks outside of your main program.
-2. Celery requires a message broker for communication.
+1. Celery is a <b>distributed task queue</b> that can collect, record, schedule, and perform tasks outside of your main program.
+2. Celery requires a <b>message broker</b> for communication.
 3. Redis and RabbitMQ are two message brokers that developers often use together with Celery.
-4. 
+
+*What is message broker?*
+A message broker is an intermediary computer program module that translates a message from the formal messaging protocol of the sender to the formal messaging protocol of the receiver
