@@ -61,11 +61,11 @@ When a message is in the queue and it goes to the consumer, the message stays in
 
 
 ### About messaging models
-<b>1. Point-to-point:</b> 
+<b>1. Point-to-point:</b><br> 
 Point to Point means message(s) is sent from one application(producer or sender) to another application(consumer/receiver) via a queue. There can be more than one consumer listening on a queue but only one of them will be get the message. Hence it is Point to Point or One to One.
-<b>2. Pub/Sub:</b>
+<b>2. Pub/Sub:</b><br>
 Pub/Sub or Publisher/Subscriber is another messaging model where a message is sent to multiple consumers(or subscribers) through a topic. The topic is the link between publisher and subscriber. (Topic here means the binding).
-
+<br>
 *Note: We are using pub/sub messaging model in this tutorial, we also call it as producer/consumer.*
 
 
