@@ -13,25 +13,27 @@
 
 
 ## What is celery?
-Celery is an open-source Python library which is used to run the tasks asynchronously. It is a task queue that holds the tasks and distributes them to the workers in a proper manner. It is primarily focused on real-time operation but also supports scheduling (run regular interval tasks).
+Celery is an open-source Python library which is used to <b>run the tasks asynchronously</b>. It is a task queue that holds the tasks and distributes them to the workers in a proper manner. It is primarily focused on real-time operation but also supports scheduling (run regular interval tasks).
 
 ## Uses of celery:
 1. Offloading work (using Celery workers)
 2. Scheduling task execution (using Celery beat)
 
 ## What is RabbitMQ?
-RabbitMQ is an open-source message-broker software that originally implemented the Advanced Message Queuing Protocol. We will understand more about it later in this tutorial.
+RabbitMQ is an open-source <b>message-broker</b> software that originally implemented the <b>Advanced Message Queuing Protocol</b>. We will understand more about it later in this tutorial.
 
 ## What is Flower?
-Flower is a web based tool for monitoring and administrating Celery clusters. Flower helps us to check the following things:
+Flower is a web based tool for <b>monitoring and administrating Celery</b> clusters. Flower helps us to check the following things:
 1. Task progress and history
 2. Ability to show task details (arguments, start time, runtime, and more)
 3. Graphs and statistics (and many more things)
 
 ## Few points you should know as a pre-requisite:
-1. <b>Queue</b> is an abstract data structure, somewhat similar to Stacks. Unlike stacks, a queue is open at both its ends. One end is always used to insert data (enqueue) and the other is used to remove data (dequeue). Queue follows First-In-First-Out methodology, i.e., the data item stored first will be accessed first.
-2. <b>Task queues</b> let applications perform work, called tasks, asynchronously outside of a user request. If an app needs to execute work in the background, it adds tasks to task queues. The tasks are executed later, by worker services. The Task Queue service is designed for asynchronous work.
-3. Task, work, message or job are used to refer the same thing i.e. a piece of work to be done or undertaken.
+1. <b>Queue</b> is an abstract data structure, somewhat similar to Stacks. Unlike stacks, a queue is open at both its ends. One end is always used to insert data (enqueue) and the other is used to remove data (dequeue). Queue follows <b>First-In-First-Out</b> methodology, i.e., the data item stored first will be accessed first.
+<br>
+2. <b>Task queues</b> let applications perform work, called tasks, asynchronously outside of a user request. If an app needs to execute work in the background, it adds tasks to task queues. The tasks are executed later, by worker services. The Task Queue service is designed for <b>asynchronous work</b>.
+<br>
+3. <b>Task, work, message or job</b> are used to refer the same thing i.e. a piece of work to be done or undertaken.
 
 ## Before starting
 There might be few problems working with celery on windows. However, we will try to make it work on windows as well. So don't lose your mind, while setting up celery!
