@@ -29,10 +29,8 @@ Flower is a web based tool for <b>monitoring and administrating Celery</b> clust
 3. Graphs and statistics (and many more things)
 
 ## Few points you should know as a pre-requisite:
-1. <b>Queue</b> is an abstract data structure, somewhat similar to Stacks. Unlike stacks, a queue is open at both its ends. One end is always used to insert data (enqueue) and the other is used to remove data (dequeue). Queue follows <b>First-In-First-Out</b> methodology, i.e., the data item stored first will be accessed first.
-<br>
-2. <b>Task queues</b> let applications perform work, called tasks, asynchronously outside of a user request. If an app needs to execute work in the background, it adds tasks to task queues. The tasks are executed later, by worker services. The Task Queue service is designed for <b>asynchronous work</b>.
-<br>
+1. <b>Queue</b> is an abstract data structure, somewhat similar to Stacks. Unlike stacks, a queue is open at both its ends. One end is always used to insert data (enqueue) and the other is used to remove data (dequeue). Queue follows <b>First-In-First-Out</b> methodology, i.e., the data item stored first will be accessed first.<br><br>
+2.<b>Task queues</b> let applications perform work, called tasks, asynchronously outside of a user request. If an app needs to execute work in the background, it adds tasks to task queues. The tasks are executed later, by worker services. The Task Queue service is designed for <b>asynchronous work</b>.<br><br>
 3. <b>Task, work, message or job</b> are used to refer the same thing i.e. a piece of work to be done or undertaken.
 
 ## Before starting
