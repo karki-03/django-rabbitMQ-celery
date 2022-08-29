@@ -1,5 +1,17 @@
 # How to Use Celery and RabbitMQ and Flower with Django?
 
+### What you will get from this tutorial?
+1. Basics & pre-requisites for learning Celery.
+2. Architecture.
+3. Workflow of task queue.
+4. About AMQP.
+5. Types of exchanges.
+6. Messaging models.
+7. Installing RabbitMQ, Celery and Flower.
+8. Practically making a simpe django project to send mail using task queue.
+9. Code snippet for getting started with celery. (<b><a href="https://github.com/karki-03/celery_django_app">Click here</a></b> to directly go to code.)
+
+
 ## What is celery?
 Celery is an open-source Python library which is used to run the tasks asynchronously. It is a task queue that holds the tasks and distributes them to the workers in a proper manner. It is primarily focused on real-time operation but also supports scheduling (run regular interval tasks).
 
