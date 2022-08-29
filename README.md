@@ -44,10 +44,10 @@ There might be few problems working with celery on windows. However, we will try
 <b>What is message broker?</b><br>
 A message broker is an intermediary computer program module that translates a message from the formal messaging protocol of the sender to the formal messaging protocol of the receiver.
 
-You can checkout the below diagram (made by me) to know how task queue works!
-<br>
+You can checkout the diagram below to know how task queue works!
+<br><br><br>
 ![Untitled Diagram](https://user-images.githubusercontent.com/57327185/186875182-d055f417-9d29-463d-abdd-2272eb2f9681.png)
-<br>
+<br><br><br>
 
 1. <b>Producers</b> or celery clients are basically the APIs that will send messages to the message broker.
 2. <b>Message broker</b> is responsible for the connection between producer and consumers.
