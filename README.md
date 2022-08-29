@@ -173,7 +173,9 @@ On clicking submit, success page is rendered and we can click the send mail agai
 
 With this we have completed this tutorial. However, it is just the begining, we can schedule our tasks through celery and there are many use cases. The motive of this tutorial was to somehow make you understand the core concept behind task queues and implementing them as quickly as possible. I will attach the github repo for the project we made in this tutorial. I will also attach the cheatsheet for all commands we used. 
 
-I will also explain each and every line of code.
+You might have thought that each and every line of code was not explained properly in this tutorial. However, I will be explaing each and everything after this point. So, give it a break and comeback after to learn more about the code you've just written.
+
+
 
 
 
