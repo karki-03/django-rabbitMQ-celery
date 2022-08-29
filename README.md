@@ -120,7 +120,60 @@ Congrats! You have successfully installed rabbitMQ on your system.
 7. Now inside the virual environment run the command: `pip install djangorestframework`. Also, include 'rest_framework' in the INSTALLED_APPS definition in settings.py file. ![image](https://user-images.githubusercontent.com/57327185/187134092-ca6a6eb9-0761-4a78-9788-930489789c22.png)
  (Installing django rest framework is not mandatory, but gives us a lot of convenience and makes our work easier compared to plain django.)
 8. Create a new app, send_mail by running: `python manage.py startapp send_mail`. By now your file directory should look like this. ![image](https://user-images.githubusercontent.com/57327185/187133942-a547d5be-f2e6-451d-b60d-9419465637c0.png)
-9. 
+9. Make a new file: urls.py inside the folder `send_mail`. To make it accessible , add `path("", include("send_mail.urls")),` in the urpatterns list in celerytutorial/urls.py file. Also, dont forget to import `include` from `django.urls`
+10. Make a directory `templates`, inside of which 3 html files has to be created: base.html, index.html and success.html. The code for all these template files are as follows. Also, add ('DIRS': [Path(BASE_DIR,'templates')],) in your TEMPLATES settings.
+
+base.html
+![image](https://user-images.githubusercontent.com/57327185/187139181-b02d3c58-4bfe-4d3a-801e-91fdeb508af3.png)
+
+index.html
+![image](https://user-images.githubusercontent.com/57327185/187139233-9dab7337-e645-4a0c-a069-0e807a717281.png)
+
+success.html
+![image](https://user-images.githubusercontent.com/57327185/187139278-4b1e320f-e186-48e2-b24f-f65bd1077167.png)
+
+send_mail/urls.py
+![image](https://user-images.githubusercontent.com/57327185/187139368-9296bef9-e5e3-4ff7-91a0-bebe8d3becd1.png)
+
+send_mail/views.py
+![image](https://user-images.githubusercontent.com/57327185/187139439-ef980b82-1220-4fe4-8cb5-0ba376046d7c.png)
+
+### Let us test the django project on our browser
+1. Run `python manage.py makemigrations` and `python manage.py migrate`
+2. Run `python manage.py runserver` and open the url on your browser. (http://127.0.0.1:8000/ in my case, please make the required changes in the code if your port is different.)
+3. You should be able to see a simple form. ![image](https://user-images.githubusercontent.com/57327185/187140030-aa89cf83-8c46-4c28-aefa-094ee4083a38.png)
+On clicking submit, success page is rendered and we can click the send mail again button. Till now we have just made the skeleton of the project. Let us now write the logic for sending mail in the views.py file inside SendMailView class. 
+
+## Install celery
+1. Inside your virtual environment run `python -m pip install celery`
+2. Create a new file `celery.py` in the `celerytutorial` directory. ![image](https://user-images.githubusercontent.com/57327185/187141129-19b920d0-44e2-4ec4-8445-3f614fe49a25.png)
+3. Let us create a task now. So, create `tasks.py` in the `send_mail` directory. ![image](https://user-images.githubusercontent.com/57327185/187142089-201f8f0f-aa5d-4d64-bca9-6ce3c78631fc.png)
+4. Let us call this function (send_email_task) from our API view. ![image](https://user-images.githubusercontent.com/57327185/187142760-3f706499-0526-4f21-aa7e-2299e0035ef5.png)
+5. Celery needs a message broker to communicate with programs that send tasks to the task queue. Without a broker, Celery isn’t able to receive instructions.
+6. So, we need to start the rabbitMQ server by running `rabbitmq-server` in the RabbitMQ Command Prompt.
+7. Run `pip install eventlet`. Then run `celery -A celerytutorial worker -l info -P eventlet`
+8. Let us add our message broker's server url in the settings file. (CELERY_BROKER_URL = "amqp://guest:guest@localhost:5672/"). 
+9. To actually send the mail you need to set up everything. To sum up you have to add these settings: 
+   EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+   EMAIL_HOST = 'smtpxxxxxxxxxxx'
+   EMAIL_USE_TLS = True
+   EMAIL_PORT = xxx
+   EMAIL_HOST_USER = 'xxxx@xxxx.com'
+   EMAIL_HOST_PASSWORD = 'xxxxxxx'
+   
+   Alternatively, to save up time, you can print the mail on console by adding `EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"`
+   
+10. Once you are sure, celery worker, rabbitMQ server and django server all are running. Then hit the localhost url for home view. Fill up the form and send the email. You can see how fast the response is given. You can verify this by adding sleep command in the tasks.py file's send_email_task function, which is called in the views file. (This sleep represents the complex logic which requires time to execute.)
+11. With this, you have successfully send a task to be executed asynchronously by celery worker. But, we have not discussed about Flower till now.
+
+## Install Flower
+1. Run `pip install flower` inside the virtual environment.
+2. Run `celery -A celerytutorial flower  --address=127.0.0.6 --port=5566` in another prompt.
+3. Open `http://127.0.0.6:5566/` on the browser. Here you can visualize the activities done by celery.
+
+With this we have completed this tutorial. However, it is just the begining, we can schedule our tasks through celery and there are many use cases. The motive of this tutorial was to somehow make you understand the core concept behind task queues and implementing them as quickly as possible. I will attach the github repo for the project we made in this tutorial. I will also attach the cheatsheet for all commands we used. 
+
+I will also explain each and every line of code.
 
 
 
