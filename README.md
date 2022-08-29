@@ -7,6 +7,15 @@ Celery is an open-source Python library which is used to run the tasks asynchron
 1. Offloading work (using Celery workers)
 2. Scheduling task execution (using Celery beat)
 
+## What is RabbitMQ?
+RabbitMQ is an open-source message-broker software that originally implemented the Advanced Message Queuing Protocol. We will understand more about it later in this tutorial.
+
+## What is Flower?
+Flower is a web based tool for monitoring and administrating Celery clusters. Flower helps us to check the following things:
+1. Task progress and history
+2. Ability to show task details (arguments, start time, runtime, and more)
+3. Graphs and statistics (and many more things)
+
 ## Few points you should know as a pre-requisite:
 1. <b>Queue</b> is an abstract data structure, somewhat similar to Stacks. Unlike stacks, a queue is open at both its ends. One end is always used to insert data (enqueue) and the other is used to remove data (dequeue). Queue follows First-In-First-Out methodology, i.e., the data item stored first will be accessed first.
 2. <b>Task queues</b> let applications perform work, called tasks, asynchronously outside of a user request. If an app needs to execute work in the background, it adds tasks to task queues. The tasks are executed later, by worker services. The Task Queue service is designed for asynchronous work.
@@ -70,9 +79,53 @@ Point to Point means message(s) is sent from one application(producer or sender)
 <b>2. Pub/Sub:</b>
 Pub/Sub or Publisher/Subscriber is another messaging model where a message is sent to multiple consumers(or subscribers) through a topic. The topic is the link between publisher and subscriber. (Topic here means the binding).
 <br>
+<br>
 *Note: To be precise Pub/Sub is the name of the `messaging pattern`. And producers and consumers are a part of it. We are using pub/sub messaging model in this tutorial.*
 <br>
 <br>
+
+# Let's get our hands dirty!
+
+## Install Rabbit MQ
+Follow the instructions given on the official download page of rabbitMQ to install rabbitMQ on your machine.
+Download page (RabbitMQ): https://www.rabbitmq.com/download.html
+
+In this tutorial I will assume we are using Windows operating system. So, for windows users, click this link: https://www.rabbitmq.com/install-windows.html and download the excutable file and follow the instructions to successfully install rabbit MQ on your machine. 
+
+You also need to install Erlang. Otherwise, RabbitMQ might not work.
+
+From start menu, you can search for `RabbitMQ Command Prompt`, a command prompt will be opened where you can start the rabbitMQ server by typing `rabbitmq-server`
+<br><br>
+![4](https://user-images.githubusercontent.com/57327185/187129827-28fa0734-4f93-41ff-b4a3-2717d93d13be.JPG)
+<br>
+By default you can find rabbitMQ server running on: http://localhost:15672/
+Enter username and password both as `guest`
+<br><br>
+![5](https://user-images.githubusercontent.com/57327185/187130233-8513d771-a21e-40cd-947b-b1cbafca2a15.JPG)
+<br>
+After logging in the dashboard of RabbitMQ server will open up.
+<br><br>
+![6](https://user-images.githubusercontent.com/57327185/187130474-5680accc-5218-463e-a5c9-807d73e08a5c.JPG)
+<br>
+Congrats! You have successfully installed rabbitMQ on your system.
+
+## Setting up a Django project
+
+1. Open command prompt, go to your projects directory where you will be creating the django project.
+2. Execute `django-admin startproject celerytutorial`
+3. Then change the directory by executing: `cd celerytutorial` ![7](https://user-images.githubusercontent.com/57327185/187131427-0ac49f39-63d1-447b-bcd9-e563561f69f9.JPG)
+4. Execute `code .` to open up VS code. Alternatively, open the project in any code editor of your choice. You file directory will look something like this. ![image](https://user-images.githubusercontent.com/57327185/187131712-511e7f49-76e3-40d1-a446-74afbd160524.png)
+5. Create a virtual environment to isolate our package dependencies by executing: `python -m venv env` ('env' can be replaced with the name of virual environment of your choice.)
+6. On windows type: `env\Scripts\activate` to activate the virtual environment. Alternatively, type: `source env/bin/activate` on linux.
+7. Now inside the virual environment run the command: `pip install djangorestframework`. Also, include 'rest_framework' in the INSTALLED_APPS definition in settings.py file. ![image](https://user-images.githubusercontent.com/57327185/187134092-ca6a6eb9-0761-4a78-9788-930489789c22.png)
+ (Installing django rest framework is not mandatory, but gives us a lot of convenience and makes our work easier compared to plain django.)
+8. Create a new app, send_mail by running: `python manage.py startapp send_mail`. By now your file directory should look like this. ![image](https://user-images.githubusercontent.com/57327185/187133942-a547d5be-f2e6-451d-b60d-9419465637c0.png)
+9. 
+
+
+
+
+
 
 
 
