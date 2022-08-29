@@ -46,7 +46,7 @@ A message broker is an intermediary computer program module that translates a me
 
 You can checkout the diagram below to know how task queue works!
 <br><br><br>
-<img src="https://imgur.com/ZlEeBSH"></img>
+<img src="https://imgur.com/ZlEeBSH">
 <!-- ![Untitled Diagram](https://imgur.com/ZlEeBSH) -->
 <br><br><br>
 
