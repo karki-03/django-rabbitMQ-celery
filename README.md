@@ -8,7 +8,7 @@
 5. Types of exchanges.
 6. Messaging models.
 7. Installing RabbitMQ, Celery and Flower.
-8. Practically making a simpe django project to send mail using task queue.
+8. Practically making a simple django project to send mail using task queue.
 9. Code snippet for getting started with celery. (<b><a href="https://github.com/karki-03/celery_django_app">Click here</a></b> to directly go to code.)
 
 
