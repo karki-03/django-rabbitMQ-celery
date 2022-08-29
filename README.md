@@ -70,7 +70,10 @@ Point to Point means message(s) is sent from one application(producer or sender)
 <b>2. Pub/Sub:</b>
 Pub/Sub or Publisher/Subscriber is another messaging model where a message is sent to multiple consumers(or subscribers) through a topic. The topic is the link between publisher and subscriber. (Topic here means the binding).
 <br>
-*Note: We are using pub/sub messaging model in this tutorial, we also call it as producer/consumer.*
+*Note: To be precise Pub/Sub is the name of the `messaging pattern`. And producers and consumers are a part of it. We are using pub/sub messaging model in this tutorial.*
+<br>
+<br>
+
 
 
 
