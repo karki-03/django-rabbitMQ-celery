@@ -46,7 +46,7 @@ A message broker is an intermediary computer program module that translates a me
 
 You can checkout the diagram below to know how task queue works!
 <br><br><br>
-![Untitled Diagram](https://user-images.githubusercontent.com/57327185/186875182-d055f417-9d29-463d-abdd-2272eb2f9681.png)
+![Untitled Diagram](https://imgur.com/ZlEeBSH)
 <br><br><br>
 
 1. <b>Producers</b> or celery clients are basically the APIs that will send messages to the message broker.
