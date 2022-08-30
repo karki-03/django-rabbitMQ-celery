@@ -155,9 +155,7 @@ Congrats! You have successfully installed rabbitMQ on your system.
 10. Make a directory `templates`, inside of which 3 html files has to be created: base.html, index.html and success.html. The code for all these template files are as follows. Also, add ('DIRS': [Path(BASE_DIR,'templates')],) in your TEMPLATES settings.
 
 base.html
-<figure align = "center" width="100%">
-<img src="11.JPG" width="600"/>
-</figure>
+
 
 index.html
 <figure align = "center" width="100%">
@@ -179,14 +177,26 @@ send_mail/views.py
 ### Let us test the django project on our browser
 1. Run `python manage.py makemigrations` and `python manage.py migrate`
 2. Run `python manage.py runserver` and open the url on your browser. (http://127.0.0.1:8000/ in my case, please make the required changes in the code if your port is different.)
-3. You should be able to see a simple form. ![image](https://user-images.githubusercontent.com/57327185/187140030-aa89cf83-8c46-4c28-aefa-094ee4083a38.png)
+3. You should be able to see a simple form. 
+<figure align = "center" width="100%">
+<img src="11.JPG" width="600"/>
+</figure>
 On clicking submit, success page is rendered and we can click the send mail again button. Till now we have just made the skeleton of the project. Let us now write the logic for sending mail in the views.py file inside SendMailView class. 
 
 ## Install celery
 1. Inside your virtual environment run `python -m pip install celery`
-2. Create a new file `celery.py` in the `celerytutorial` directory. ![image](https://user-images.githubusercontent.com/57327185/187141129-19b920d0-44e2-4ec4-8445-3f614fe49a25.png)
-3. Let us create a task now. So, create `tasks.py` in the `send_mail` directory. ![image](https://user-images.githubusercontent.com/57327185/187142089-201f8f0f-aa5d-4d64-bca9-6ce3c78631fc.png)
-4. Let us call this function (send_email_task) from our API view. ![image](https://user-images.githubusercontent.com/57327185/187142760-3f706499-0526-4f21-aa7e-2299e0035ef5.png)
+2. Create a new file `celery.py` in the `celerytutorial` directory.
+<figure align = "center" width="100%">
+<img src="12.JPG" width="600"/>
+</figure>
+3. Let us create a task now. So, create `tasks.py` in the `send_mail` directory. 
+<figure align = "center" width="100%">
+<img src="13.JPG" width="600"/>
+</figure>
+4. Let us call this function (send_email_task) from our API view. 
+<figure align = "center" width="100%">
+<img src="13.JPG" width="600"/>
+</figure>
 5. Celery needs a message broker to communicate with programs that send tasks to the task queue. Without a broker, Celery isn’t able to receive instructions.
 6. So, we need to start the rabbitMQ server by running `rabbitmq-server` in the RabbitMQ Command Prompt.
 7. Run `pip install eventlet`. Then run `celery -A celerytutorial worker -l info -P eventlet`
