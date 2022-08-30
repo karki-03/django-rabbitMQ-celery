@@ -145,11 +145,11 @@ Congrats! You have successfully installed rabbitMQ on your system.
 5. Create a virtual environment to isolate our package dependencies by executing: `python -m venv env` ('env' can be replaced with the name of virual environment of your choice.)
 6. On windows type: `env\Scripts\activate` to activate the virtual environment. Alternatively, type: `source env/bin/activate` on linux.
 7. Now inside the virual environment run the command: `pip install djangorestframework`. Also, include 'rest_framework' in the INSTALLED_APPS definition in settings.py file. <figure align = "center" width="100%">
-<img src="9.JPG" width="600"/>
+<img src="10.JPG" width="600"/>
 </figure>
  (Installing django rest framework is not mandatory, but gives us a lot of convenience and makes our work easier compared to plain django.)
 8. Create a new app, send_mail by running: `python manage.py startapp send_mail`. By now your file directory should look like this. <figure align = "center" width="100%">
-<img src="10.JPG" width="600"/>
+<img src="9.JPG" width="600"/>
 </figure>
 9. Make a new file: urls.py inside the folder `send_mail`. To make it accessible , add `path("", include("send_mail.urls")),` in the urpatterns list in celerytutorial/urls.py file. Also, dont forget to import `include` from `django.urls`
 10. Make a directory `templates`, inside of which 3 html files has to be created: base.html, index.html and success.html. The code for all these template files are as follows. Also, add ('DIRS': [Path(BASE_DIR,'templates')],) in your TEMPLATES settings.
