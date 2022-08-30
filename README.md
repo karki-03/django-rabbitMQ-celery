@@ -48,7 +48,7 @@ You can checkout the diagram below to know how task queue works!
 <br><br><br>
 
 <figure align = "center" width="100%">
-<img src="1.jpg" width="600"/>
+<img src="8.jpg" width="600"/>
 <figcaption>Fig. Flow diagram of recommendation service</figcaption>
 </figure>
 <!-- ![Untitled Diagram](https://imgur.com/ZlEeBSH) -->
