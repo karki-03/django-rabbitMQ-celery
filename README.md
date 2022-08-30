@@ -48,7 +48,7 @@ You can checkout the diagram below to know how task queue works!
 <br><br><br>
 
 <figure align = "center" width="100%">
-<img src="Untitled Diagram.png" width="600"/>
+<img src="workflow.png" width="600"/>
 <figcaption>Workflow for task queue</figcaption>
 </figure>
 <!-- ![Untitled Diagram](https://imgur.com/ZlEeBSH) -->
@@ -155,24 +155,29 @@ Congrats! You have successfully installed rabbitMQ on your system.
 10. Make a directory `templates`, inside of which 3 html files has to be created: base.html, index.html and success.html. The code for all these template files are as follows. Also, add ('DIRS': [Path(BASE_DIR,'templates')],) in your TEMPLATES settings.
 
 base.html
-
+<figure align = "center" width="100%">
+<img src="base_html.JPG" width="600"/>
+</figure>
 
 index.html
 <figure align = "center" width="100%">
-<img src="12.JPG" width="600"/>
+<img src="index_html.JPG" width="600"/>
 </figure>
 
 success.html
 <figure align = "center" width="100%">
-<img src="13.JPG" width="600"/>
+<img src="success_html.JPG" width="600"/>
 </figure>
 
 send_mail/urls.py
 <figure align = "center" width="100%">
-<img src="13.JPG" width="600"/>
+<img src="urls.JPG" width="600"/>
 </figure>
+
 send_mail/views.py
-![image](https://user-images.githubusercontent.com/57327185/187139439-ef980b82-1220-4fe4-8cb5-0ba376046d7c.png)
+<figure align = "center" width="100%">
+<img src="views.JPG" width="600"/>
+</figure>
 
 ### Let us test the django project on our browser
 1. Run `python manage.py makemigrations` and `python manage.py migrate`
