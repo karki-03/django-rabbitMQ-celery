@@ -189,10 +189,7 @@ On clicking submit, success page is rendered and we can click the send mail agai
 <figure align = "center" width="100%">
 <img src="12.JPG" width="600"/>
 </figure>
-3. Let us create a task now. So, create `tasks.py` in the `send_mail` directory. 
-<figure align = "center" width="100%">
-<img src="13.JPG" width="600"/>
-</figure>
+3. Let us create a task now. So, create `tasks.py` in the `send_mail` directory.
 4. Let us call this function (send_email_task) from our API view. 
 <figure align = "center" width="100%">
 <img src="13.JPG" width="600"/>
